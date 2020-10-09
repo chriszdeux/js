@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+</head>
+<body>
+    <H1>HABLAREMOS DE this</H1>
+    <h2>abre la consola >>>></h2>
+
+    <script>
+        // const person = {
+        //     name: 'christian',
+        //     sayHello: function () {
+        //         console.log(`hola me llamo ${this.name}`)
+        //     }
+        // }
+
+        // person.sayHello();
+
+        // const action = person.sayHello;
+        // action();
+
+        // function Person (name){
+        //     this.name = name;
+        // }
+
+        // Person.prototype.hello = function () {
+        //     console.log(`bienvenido ${this.name}`)
+        // }
+
+        // const p1 = new Person('christian');
+        // p1.hello();
+
+
+
+        function Person (name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+        }
+
+        Person.prototype.info = function () {
+            console.log(`hi ${this.name} this is all your info`)
+            console.log(`name: ${this.name}`)
+            console.log(`age: ${this.age}`)
+            console.log(`gender: ${this.gender}`)
+
+            
+        }
+
+        const p1 = new Person('nina', 3, 'female');
+        p1.info();
+    </script>
+</body>
+</html>
