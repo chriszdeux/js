@@ -8,6 +8,49 @@
 <body>
     <h1>call apply bind</h1>
     <h2>abre tu consola >>>>>>></h2>
+    <button class="message-button">click</button>
+    <button class="message-button">click on me</button>
+    <button class="message-button">come on!! click on me! ":D</button>
+    <script>
+        function sayHello () {
+            console.log(`hi ${this.name} ${this.lastName}. How are you today? :)`)
+        }
 
+        const person = [
+            {name: 'christian', lastName: 'meza'},
+            {name: 'arce', lastName: 'polanco'},
+            {name: 'nina', lastName: 'perruna'},
+        ]
+
+        function walk (meters, direction) {
+            console.log(`${this.name} walk around ${meters}m on direction to ${direction}`)
+        }
+        
+        //call
+        sayHello.call(person[2]);
+        walk.call(person[2], 300, 'south')
+        // sayHello.call(person[1]);
+        // sayHello.call(person[0]);
+
+        //apply
+        console.log(`apply`)
+        sayHello.apply(person[1])
+
+        console.log('bind')
+        const personWalk = walk.bind(person[1])
+        const personHello = sayHello.bind(person[2])
+        personWalk(400, 'nort')
+        const personWalk2 = walk.bind(person[0], 300)
+        personWalk2('nort')
+        personHello();
+
+
+        const buttons = document.getElementsByClassName('message-button');
+
+        Array.prototype.forEach.call(buttons, 
+        button => {
+            button.onclick = () => alert('nunca pares de aprender')
+        })
+    </script>
 </body>
 </html>
